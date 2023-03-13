@@ -1,0 +1,24 @@
+#cloud-config
+disable_root: true
+timezone: Europe/Moscow
+repo_update: true
+repo_upgrade: true
+apt:
+  preserve_sources_list: true
+
+packages:
+  - nginx
+
+runcmd:
+  - [ systemctl, nginx-reload ]
+  - [ systemctl, enable, nginx.service ]
+  - [ systemctl. start, --no-block, nginx.service ]
+  - [ sh, -c, "echo $(hostname | cut -d '.' -f 1 ) > /var/www/html/index.html" ]
+users:
+  - name: terraform
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDY1M+oSTc/HKnQ7HTLevIk4w4h16HxFYxh+ysErbe9WVZV0twz3evxL3sXAGTPqDoiWt6jLNzNdmrGekK+vcE1yQ2+EhhVSTMJCy+0tj4Ws9pDqBU3ABl125VEjRcFiRFKODy//P+XnNxu0JL+8FDWF2IM6OEStk0/Z7Erg1dQEvV2+7dCKHyh0VGoNML0NviROx10AAYOXUs+kHex9Tu2KaxAifkwwZ7ogR40PnxiXYtcG+oo+Z8w8geAQeeyERJotgoFaInBkW9JQ98hJEcLb3j9Be/PmtHmGE19XD15aP5+EJsRbI9byoycea/S/H1K68djHSG49qv01h3fggl9 root@terraform
+
