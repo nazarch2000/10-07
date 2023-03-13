@@ -32,4 +32,9 @@
 
 *2. Скриншот статуса балансировщика и целевой группы.*
 
+![image](https://user-images.githubusercontent.com/106932460/224641517-108115d5-2882-4163-93ae-5220873b68db.png)
+
 *3. Скриншот страницы, которая открылась при запросе IP-адреса балансировщика.*
+
+![image](https://user-images.githubusercontent.com/106932460/224641569-4b8a7e03-ef25-4fa9-bd14-77c6cb340740.png)
+![image](https://user-images.githubusercontent.com/106932460/224641693-c77706b1-1faf-426b-bfd4-c9098ba609d0.png)
